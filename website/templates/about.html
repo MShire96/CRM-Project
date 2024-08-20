@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="about-container my-5">
+    <h1 class="about-title mb-4">About This CRM Project</h1>
+
+    <div class="about-introduction">
+        <p>Welcome to my Customer Relationship Management (CRM) application, a tool designed to help businesses efficiently manage their customer interactions, streamline processes, and improve profitability. This project was built using Django, a powerful Python web framework, and MySQL, a robust relational database management system. Below, you’ll find an overview of the project setup and the steps taken to bring this application to life.</p>
+    </div>
+
+    <div class="about-section">
+        <h2 class="about-heading mt-5">Project Overview</h2>
+        <p>This CRM project allows users to manage customer records, including adding, updating, and deleting records as needed. The application features user authentication, ensuring that only authorized personnel can access and modify customer data. The user interface is built with Bootstrap, providing a clean and responsive design.</p>
+
+        <h3 class="about-subheading mt-4">Key Features:</h3>
+        <ul class="about-list">
+            <li>User authentication (registration, login, logout)</li>
+            <li>CRUD operations on customer records (Create, Read, Update, Delete)</li>
+            <li>Responsive design using Bootstrap</li>
+            <li>Data stored in a MySQL database</li>
+            <li>Custom forms for user registration and record management</li>
+            <li>GitHub integration for version control</li>
+        </ul>
+    </div>
+
+    <div class="about-section">
+        <h2 class="about-heading mt-5">Setup and Development Steps</h2>
+
+        <h3 class="about-subheading">1. Setting Up the Environment</h3>
+        <p>To begin, we set up the development environment by installing MySQL and creating a virtual environment for our Django project. This isolated environment ensures that dependencies required by the project do not interfere with other projects or system packages.</p>
+        <pre class="about-code"><code>
+        brew install mysql
+        python -m venv venv
+        source venv/bin/activate
+        pip install django mysqlclient mysql-connector-python
+        </code></pre>
+
+        <h3 class="about-subheading">2. Starting the Django Project</h3>
+        <p>We initiated a new Django project named <strong>“darm”</strong> and created an app named <strong>“website”</strong>. This modular structure helps organize the project code efficiently.</p>
+        <pre class="about-code"><code>
+        django-admin startproject darm
+        python manage.py startapp website
+        </code></pre>
+
+        <h3 class="about-subheading">3. Configuring the Database</h3>
+        <p>Next, we configured Django to connect to a MySQL database by editing the settings.py file. We then created the database and migrated the necessary Django models to set up the initial database schema.</p>
+        <pre class="about-code"><code>
+        # In settings.py
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'your_database_name',
+                'USER': 'your_mysql_user',
+                'PASSWORD': 'your_mysql_password',
+                'HOST': 'localhost',
+                'PORT': '3306',
+            }
+        }
+
+        # Running migrations
+        python manage.py migrate
+        </code></pre>
+
+        <h3 class="about-subheading">4. Setting Up Version Control with Git and GitHub</h3>
+        <p>Version control is crucial for any development project. We initialized a Git repository, connected it to a GitHub remote repository, and pushed our local changes to the remote repository. This step ensures our code is backed up and can be collaboratively developed.</p>
+        <pre class="about-code"><code>
+        git init
+        git remote add origin https://github.com/yourusername/your-repo-name.git
+        git add .
+        git commit -m "Initial commit"
+        git push -u origin main
+        </code></pre>
+
+        <h3 class="about-subheading">5. Developing the Core Functionality</h3>
+        <p>With the environment set up, we moved on to developing the core functionality of the CRM. This involved creating views, templates, and models to handle customer records and user authentication. The navigation bar and base template were set up using Bootstrap for a consistent look and feel across the site.</p>
+
+        <h4 class="about-subheading">Views and Templates</h4>
+        <p>We created several views in our views.py file to handle different aspects of the application, such as displaying the homepage, handling user authentication, and managing customer records. Corresponding templates were created for each view, extending a base template for consistency.</p>
+
+        <pre class="about-code"><code>
+        # In views.py
+        def home(request):
+            return render(request, 'home.html')
+
+        def add_record(request):
+            return render(request, 'add_record.html')
+
+        # And so on...
+        </code></pre>
+
+        <h4 class="about-subheading">Models</h4>
+        <p>The Django models define the structure of the customer records in the database. We created a <strong>Record</strong> model in models.py, migrated it to the database, and registered it in the Django admin site to enable easy management of records from the admin interface.</p>
+
+        <pre class="about-code"><code>
+        # In models.py
+        from django.db import models
+
+        class Record(models.Model):
+            first_name = models.CharField(max_length=50)
+            last_name = models.CharField(max_length=50)
+            email = models.EmailField(max_length=100)
+            phone = models.CharField(max_length=15)
+            address = models.CharField(max_length=100)
+            city = models.CharField(max_length=50)
+            county = models.CharField(max_length=50)
+            postcode = models.CharField(max_length=10)
+            company_name = models.CharField(max_length=50, null=True, blank=True)
+            date_of_birth = models.DateField(null=True, blank=True)
+        </code></pre>
+    </div>
+
+    <div class="about-section">
+        <h3 class="about-subheading">6. Enhancing the User Interface</h3>
+        <p>To ensure the application is user-friendly, we customized the default Bootstrap components and created a consistent design across all pages. We added forms for user registration and login, which are crucial for managing access to the CRM's features.</p>
+
+        <h3 class="about-subheading">7. Final Steps</h3>
+        <p>Finally, we implemented CRUD (Create, Read, Update, Delete) operations for customer records. These operations were secured with user authentication, ensuring that only logged-in users can modify the records. Additionally, we added functionality to handle the deletion and updating of records and included appropriate navigation links in the navbar.</p>
+
+        <h2 class="about-heading mt-5">Conclusion</h2>
+        <p>This CRM project is a robust and scalable solution for managing customer data, built with Django and MySQL. It features user authentication, a responsive design, and secure data management, making it an excellent foundation for further development and customization. We hope you find this project useful and informative!</p>
+    </div>
+
+    <!-- Back Button -->
+    <div class="about-back-btn-container text-center mt-5">
+        <a href="{% url 'home' %}" class="btn btn-secondary btn-lg">Back</a>
+    </div>
+</div>
+{% endblock %}

@@ -89,3 +89,6 @@ def update_record(request, pk):
     else:
         messages.success(request, "You Must Be Logged In...")
         return redirect('home')
+    
+def about(request):
+    return render(request, 'about.html')

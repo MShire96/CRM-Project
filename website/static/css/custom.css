@@ -1,0 +1,108 @@
+.table-container {
+    margin-left: -100px; /* Adjust this value to move the table to the right */
+}
+
+.table {
+    width: auto; /* Ensures the table doesn't take up 100% width by default */
+    max-width: 100%;
+    overflow-x: auto; /* Add horizontal scroll if the table is too wide */
+}
+
+.table th, .table td {
+    padding: 8px; /* Reduce padding */
+    font-size: 14px; /* Adjust font size */
+}
+
+.table th {
+    white-space: nowrap; /* Prevent column headers from wrapping */
+}
+
+@media (max-width: 768px) {
+    .table-container {
+        margin-left: 10px; /* Reduce margin on smaller screens */
+    }
+}
+
+/* Overall container for the About page */
+.about-container {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+.about-title {
+    font-size: 2.5rem;
+    color: #343a40;
+    text-align: center;
+}
+
+/* Section styling */
+.about-section {
+    margin-bottom: 30px;
+}
+
+/* Headings */
+.about-heading {
+    font-size: 2rem;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 10px;
+}
+
+/* Subheadings */
+.about-subheading {
+    font-size: 1.5rem;
+    color: #6c757d;
+    margin-top: 20px;
+}
+
+/* Paragraphs */
+.about-introduction p,
+.about-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #495057;
+}
+
+/* List styling */
+.about-list {
+    padding-left: 20px;
+    list-style-type: disc;
+    margin-top: 10px;
+    color: #6c757d;
+}
+
+/* Code block styling */
+.about-code {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #212529;
+    overflow-x: auto;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Back button container */
+.about-back-btn-container {
+    margin-top: 40px;
+}
+
+/* Styling the Back button */
+.about-back-btn-container .btn {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-back-btn-container .btn:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}

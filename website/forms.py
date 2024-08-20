@@ -34,14 +34,16 @@ class SignUpForm(UserCreationForm):
 # Create Add Record Form
 
 class AddRecordForm(forms.ModelForm):
-    first_name = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"First Name", "class": "form-corntrol",}), label="")
-    last_name = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"Last Name", "class": "form-corntrol",}), label="")
-    email = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"Email", "class": "form-corntrol",}), label="")
-    phone = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"Phone", "class": "form-corntrol",}), label="")
-    address = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"Address", "class": "form-corntrol",}), label="")
-    city = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"City", "class": "form-corntrol",}), label="")
-    county = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"County", "class": "form-corntrol",}), label="")
-    postcode = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"Postcode", "class": "form-corntrol",}), label="")
+    first_name = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"First Name", "class": "form-control",}), label="")
+    last_name = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"Last Name", "class": "form-control",}), label="")
+    email = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"Email", "class": "form-control",}), label="")
+    phone = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"Phone", "class": "form-control",}), label="")
+    address = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"Address", "class": "form-control",}), label="")
+    city = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"City", "class": "form-control",}), label="")
+    county = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"County", "class": "form-control",}), label="")
+    postcode = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"Postcode", "class": "form-control",}), label="")
+    company_name = forms.CharField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"Company Name", "class": "form-control"}), label="")
+    date_of_birth = forms.DateField(required = True, widget=forms.widgets.TextInput(attrs={"placeholder":"Date Of Birth", "class": "form-control"}), label="")
 
     class Meta:
         model = Record
